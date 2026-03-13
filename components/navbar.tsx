@@ -4,15 +4,15 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown, FileText, Type, LinkIcon, Image as ImageIcon, FileImage, FileIcon as FileVector } from "lucide-react"
 
 const tools = [
-  { name: "Word Counter", href: "/word-counter" },
-  { name: "Case Converter", href: "/case-converter" },
-  { name: "URL Trimmer", href: "/trim-urls-to-root" },
-  { name: "Image Compressor", href: "/image-compressor" },
-  { name: "HEIC to JPG", href: "/heic-to-jpg" },
-  { name: "SVG Compressor", href: "/svg-compressor" },
+  { name: "Word Counter", href: "/word-counter", icon: FileText, color: "text-blue-600" },
+  { name: "Case Converter", href: "/case-converter", icon: Type, color: "text-purple-600" },
+  { name: "URL Trimmer", href: "/trim-urls-to-root", icon: LinkIcon, color: "text-emerald-600" },
+  { name: "Image Compressor", href: "/image-compressor", icon: ImageIcon, color: "text-orange-600" },
+  { name: "HEIC to JPG", href: "/heic-to-jpg", icon: FileImage, color: "text-rose-600" },
+  { name: "SVG Compressor", href: "/svg-compressor", icon: FileVector, color: "text-cyan-600" },
 ]
 
 export function Navbar() {
@@ -58,17 +58,18 @@ export function Navbar() {
                 <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
               </button>
               <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <div className="bg-white rounded-xl shadow-lg border border-gray-100 py-2 min-w-[200px]">
+                <div className="bg-white rounded-xl shadow-lg border border-gray-100 py-2 min-w-[220px]">
                   {tools.map((tool) => (
                     <Link
                       key={tool.href}
                       href={tool.href}
-                      className={`block px-4 py-2.5 text-sm transition-colors ${
+                      className={`flex items-center gap-2.5 px-4 py-2.5 text-sm transition-colors ${
                         pathname === tool.href
                           ? "text-primary bg-primary/5 font-medium"
                           : "text-gray-600 hover:text-primary hover:bg-gray-50"
                       }`}
                     >
+                      <tool.icon className={`h-4 w-4 ${pathname === tool.href ? 'text-primary' : tool.color}`} />
                       {tool.name}
                     </Link>
                   ))}
@@ -133,12 +134,13 @@ export function Navbar() {
                   key={tool.href}
                   href={tool.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
+                  className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-colors ${
                     pathname === tool.href
                       ? "text-primary bg-primary/5 font-medium"
                       : "text-gray-600 hover:text-primary hover:bg-gray-50"
                   }`}
                 >
+                  <tool.icon className={`h-3.5 w-3.5 ${pathname === tool.href ? 'text-primary' : tool.color}`} />
                   {tool.name}
                 </Link>
               ))}
@@ -159,6 +161,28 @@ export function Navbar() {
             Contact Us
           </Link>
         </nav>
+      </div>
+
+      {/* Tool Icons Strip - Below Navbar */}
+      <div className="border-b border-gray-100 bg-gray-50/80 backdrop-blur-sm">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center gap-1 py-1.5 overflow-x-auto scrollbar-hide">
+            {tools.map((tool) => (
+              <Link
+                key={tool.href}
+                href={tool.href}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
+                  pathname === tool.href
+                    ? 'bg-primary/10 text-primary shadow-sm'
+                    : 'text-gray-500 hover:text-gray-700 hover:bg-white hover:shadow-sm'
+                }`}
+              >
+                <tool.icon className={`h-3 w-3 ${pathname === tool.href ? 'text-primary' : tool.color}`} />
+                <span className="hidden sm:inline">{tool.name}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </header>
   )

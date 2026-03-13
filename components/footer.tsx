@@ -139,9 +139,27 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-10 pt-8 border-t border-gray-800">
-          <p className="text-gray-500 text-sm text-center">
-            &copy; {new Date().getFullYear()} Rabbit Rank LLC. All Rights Reserved. Made with ♥ in the USA.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-gray-500 text-sm">
+              &copy; {new Date().getFullYear()} Rabbit Rank LLC. All Rights Reserved. Made with ♥ in the USA.
+            </p>
+            <a
+              href="https://rabbitbuilds.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-gray-500 hover:text-white text-sm transition-colors group"
+            >
+              <span>Crafted by</span>
+              <img
+                src="https://i.ibb.co/nMpz8mJd/rabbit-builds-favicon.png"
+                alt="Rabbit Builds"
+                width={18}
+                height={18}
+                className="rounded-sm opacity-70 group-hover:opacity-100 transition-opacity"
+              />
+              <span className="font-medium group-hover:text-white transition-colors">Rabbit Builds</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
