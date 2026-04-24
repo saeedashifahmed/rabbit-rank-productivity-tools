@@ -9,11 +9,11 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="space-y-4">
             <Image
-              src="https://rabbitrank.com/logo.svg"
+              src="/logo-footer.svg"
               alt="Rabbit Rank"
               width={130}
               height={42}
-              className="brightness-0 invert"
+              className=""
             />
             <p className="text-gray-400 text-sm leading-relaxed">
               Professional productivity tools to enhance your workflow. Simple, fast, and free solutions built for modern professionals.
