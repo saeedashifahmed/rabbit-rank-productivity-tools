@@ -163,27 +163,6 @@ export function Navbar() {
         </nav>
       </div>
 
-      {/* Tool Icons Strip - Below Navbar */}
-      <div className="border-b border-gray-100 bg-gray-50/80 backdrop-blur-sm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center gap-1 py-1.5 overflow-x-auto scrollbar-hide">
-            {tools.map((tool) => (
-              <Link
-                key={tool.href}
-                href={tool.href}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
-                  pathname === tool.href
-                    ? 'bg-primary/10 text-primary shadow-sm'
-                    : 'text-gray-500 hover:text-gray-700 hover:bg-white hover:shadow-sm'
-                }`}
-              >
-                <tool.icon className={`h-3 w-3 ${pathname === tool.href ? 'text-primary' : tool.color}`} />
-                <span className="hidden sm:inline">{tool.name}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
     </header>
   )
 }
