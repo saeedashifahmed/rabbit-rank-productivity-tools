@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   },
   description: 'Free browser-based productivity tools for professionals — Word Counter, Case Converter, URL Trimmer, Image Compressor, HEIC to JPG, and SVG Compressor. Fast, private, no sign-up.',
   metadataBase: new URL('https://tools.rabbitrank.com'),
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
